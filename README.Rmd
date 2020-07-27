@@ -1,0 +1,30 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# rreptiledb
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+rreptiledb allows you to search and access data from the [Reptile Database](http://www.reptile-database.org/) through R.
+
+## Installation
+
+
+And the development version from [GitHub](https://github.com/matthewlewis896/rreptiledb) with:
+
+``` r
+remotes::install_github("matthewlewis896/rreptiledb")
+```
