@@ -1,12 +1,12 @@
 Package: rreptiledb
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Search And Access Data From The Reptile Database Through R
+Version: 0.1.0
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Matt",
+           family = "Lewis",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           email = "matthewlewis896@gmail.com",
+           comment = c(ORCID = "0000-0003-2244-4078"))
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -15,3 +15,8 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 URL: https://github.com/matthewlewis896/rreptiledb
 BugReports: https://github.com/matthewlewis896/rreptiledb/issues
+Imports: 
+    rvest,
+    magrittr,
+    xml2,
+    stringr
