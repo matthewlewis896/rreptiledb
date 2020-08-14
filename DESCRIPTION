@@ -1,12 +1,17 @@
 Package: rreptiledb
 Title: Search And Access Data From The Reptile Database Through R
 Version: 0.1.0
-Authors@R: 
-    person(given = "Matt",
+Authors@R: c(
+    person(given = "Matthew",
            family = "Lewis",
            role = c("aut", "cre"),
            email = "matthewlewis896@gmail.com",
-           comment = c(ORCID = "0000-0003-2244-4078"))
+           comment = c(ORCID = "0000-0003-2244-4078")),
+   person(given = "Oliver",
+            family = "Tallowin",
+            role = "aut",
+            email = "oliver.tallowin@unep-wcmc.org",
+            comment = c(ORCID = "0000-0001-7282-3645")))
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
