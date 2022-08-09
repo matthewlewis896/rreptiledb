@@ -7,7 +7,7 @@
 rd_fetch(binomial)
 }
 \arguments{
-\item{binomial}{Character. The species's binomial name.}
+\item{binomial}{\code{character}. The species's binomial name.}
 }
 \value{
 A list of attributes and information about the species.
@@ -16,5 +16,5 @@ A list of attributes and information about the species.
 Pull data from the Reptiles Database for a specified species
 }
 \author{
-Matt Lewis, \email{matthewlewis896@gmail.com}
+Matt Lewis
 }
