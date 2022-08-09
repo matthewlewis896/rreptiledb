@@ -1,5 +1,6 @@
 #' Parse an html table into a list.
-#' @description Largely the same as \code{rvest::html_table()} with additional code to allow multiple lines & changed so parsed into a list.
+#' @description Largely the same as \code{rvest::html_table()} with additional code to
+#' allow multiple lines & changed so parsed into a list.
 #' @param x A node, node set or document.
 #' @param header Use first row as header? If `NA`, will use first row
 #'   if it consists of `<th>` tags.
@@ -8,6 +9,7 @@
 #'   the maximum number of columns with `NA`s.
 #' @param dec The character used as decimal mark.
 #' @keywords internal
+#' @noRd
 
 
 html_table <- function(x, header = NA, trim = TRUE, fill = FALSE, dec = ".") {
