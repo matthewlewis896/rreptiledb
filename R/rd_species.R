@@ -5,6 +5,7 @@
 #' Defaults to a temporary file present only in memory.
 #' @return A \code{tibble}.
 #' @author Matt Lewis
+#' @export
 
 rd_species <-
   function(outdir){

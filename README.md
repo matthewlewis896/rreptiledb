@@ -9,18 +9,20 @@
 status](https://travis-ci.com/matthewlewis896/rreptiledb.svg?branch=master)](https://travis-ci.com/matthewlewis896/rreptiledb)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/matthewlewis896/rreptiledb?branch=master&svg=true)](https://ci.appveyor.com/project/matthewlewis896/rreptiledb)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/rreptiledb)](https://CRAN.R-project.org/package=rreptiledb)
 <!-- badges: end -->
 
-rreptiledb allows you to search and access data from the [Reptile
-Database](http://www.reptile-database.org/) through R.
+rreptiledb allows you to search and download data hosted on the [Reptile
+Database](\url%7Bhttp://www.reptile-database.org/%7D) through R.
 
 ## Installation
 
-And the development version from
-[GitHub](https://github.com/matthewlewis896/rreptiledb) with:
+Install from [GitHub](https://github.com/matthewlewis896/rreptiledb)
+with:
 
 ``` r
-remotes::install_github("matthewlewis896/rreptiledb")
+pak::install_pkg("matthewlewis896/rreptiledb")
 ```
 
 ## Use
@@ -31,14 +33,20 @@ Load the package using:
 library(rreptiledb)
 ```
 
-Fetch data using `rd_fetch()` with a binomial species name:
+Download the latest species checklist on the reptile database with:
+
+``` r
+sp_list <- rd_species()
+```
+
+Fetch data for any species using `rd_fetch()`:
 
 ``` r
 sp <- rd_fetch(binomial = "Boa constrictor")
 ```
 
-This returns a `list` with named attributes as they appear on the
-Reptile Database. For instance:
+This returns a `list` with named items as they appear on the Reptile
+Database. For instance:
 
 ``` r
 print(sp$Higher_Taxa)

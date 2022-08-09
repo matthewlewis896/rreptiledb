@@ -9,3 +9,6 @@
 #' @importFrom magrittr %>%
 #' @usage lhs \%>\% rhs
 NULL
+
+## Quiet R CMD check qualms about dots
+utils::globalVariables(c('.'))

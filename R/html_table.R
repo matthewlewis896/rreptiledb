@@ -32,6 +32,7 @@ html_table.xml_nodeset <- function(x, header = NA, trim = TRUE, fill = FALSE,
 }
 
 #' @export
+# ML - section used for reptiledb
 html_table.xml_node <- function(x, header = NA, trim = TRUE,
                                 fill = FALSE, dec = ".") {
 
@@ -58,100 +59,80 @@ html_table.xml_node <- function(x, header = NA, trim = TRUE,
            "Do you want fill = TRUE?", call. = FALSE)
     }
   }
+  cells <- cells[1:11] # exclude external links
 
-  cells <- cells[1:11]
-  values <- lapply(cells,
-                   function(matt) {
-                     matt <-
-                       matt %>%
-                       lapply(
-                         .,
-                         function(me){
-                           me <-
-                             me %>%
-                             as.character() %>%
-                             strsplit("\n") %>%
-                             unlist() %>%
-                             lapply(.,
-                                    function(mattt) {
-                                      mattt <-
-                                        mattt %>%
-                                        gsub("[<>]", "QQQ", .) %>%
-                                        strsplit("QQQbrQQQ") %>%
-                                        unlist()
-                                    }) %>%
-                             lapply(.,
-                                    function(thew) {
-                                      thew <-
-                                        thew %>%
-                                        gsub("QQQ.QQQ", "", .) %>%
-                                        gsub("QQQ..QQQ", "", .) %>%
-                                        gsub("QQQ...QQQ", "", .) %>%
-                                        gsub("amp;", "", .) %>%
-                                        stringr::str_trim()
-                                    })
-                         }
-                       )
-
-
-                     matt <-
-                       matt %>%
-                       lapply(
-                         .,
-                         function(thewww){
-                           thewww <-
-                             thewww[thewww != ""]
-                         }
-                       )
-
-                     if(!(matt[[1]] == "References")){
-                       matt <-
-                         matt %>%
-                         unlist(recursive = F) %>%
-                         lapply(
-                           .,
-                           function(thewww){
-                             thewww <-
-                               thewww[thewww != ""]
-                           }
-                         )
-                     }else{
-                       matt[[2]] <-
-                         matt[[2]] %>%
-                         unlist() %>%
-                         lapply(
-                           .,
-                           function(mattt){
-                             mattt <-
-                               mattt %>%
-                               gsub("QQQa href=", "", .) %>%
-                               gsub(" target=\"_blank\"QQQ", "", .) %>%
-                               gsub("get paper here", "", .)%>%
-                               gsub("\"", "'", .) %>%
-                               gsub("amp;", "", .)
-                           }
-                         ) %>%
-                         unlist()
-                       matt[[1]] <-
-                         matt[[1]] %>%
-                         unlist()
-                     }
-
-
-                     return(matt)
-                   }
-  )
+  # ML old voodoo code
   values <-
-    values %>%
-    lapply(.,
-           function(vals){
-             out <-
-               vals[2]
-             names(out) <-
-               vals[1] %>%
-               gsub(" ", "_", .)
-             return(out)
-           }) %>%
+    cells %>%
+    lapply(
+      function(z){
+        z <-
+          z %>%
+          lapply(
+            function(zz){
+              zz <-
+                zz %>%
+                as.character() %>%
+                stringr::str_split('\n', simplify = T) %>%
+                lapply(
+                  function(zzz){
+                    zzz <-
+                      zzz %>%
+                      gsub("[<>]", "QQQ", .) %>%
+                      stringr::str_split('QQQbrQQQ', simplify = T)
+                  }
+                ) %>%
+                lapply(
+                  function(zzz){
+                    zzz <-
+                      zzz %>%
+                      gsub("QQQ.QQQ", "", .) %>%
+                      gsub("QQQ..QQQ", "", .) %>%
+                      gsub("QQQ...QQQ", "", .) %>%
+                      gsub("amp;", "", .) %>%
+                      stringr::str_trim()
+                  }
+                ) %>%
+                .[. != ""]
+            }
+          )
+        if(z[[1]] != "References"){
+          z <-
+            z %>%
+            unlist(recursive = F) %>%
+            .[. != ""]
+        }else{
+          z[[2]] <-
+            z[[2]] %>%
+            unlist() %>%
+            sapply(
+              function(zz){
+                zz %>%
+                  gsub("QQQa href=", "", .) %>%
+                  gsub(" target=\"_blank\"QQQ", "", .) %>%
+                  gsub("get paper here", "", .)%>%
+                  gsub("\"", "'", .) %>%
+                  gsub("amp;", "", .)
+              }
+            ) %>%
+            unname()
+          z[[1]] <-
+            z[[1]] %>%
+            unlist()
+        }
+        return(z)
+      }
+    ) %>%
+    lapply(
+      function(z){
+        out <- z[2]
+        names(out) <-
+          z[1] %>%
+          gsub(" ", "_", .)
+        return(out)
+    }) %>%
+    # get rid of top level of list
     unlist(recursive = F)
+
   return(values)
 }

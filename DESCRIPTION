@@ -1,13 +1,13 @@
 Package: rreptiledb
 Title: Search And Access Data From The Reptile Database Through R
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(
     person(given = "Matthew",
            family = "Lewis",
            role = c("aut", "cre"),
            email = "matthewlewis896@gmail.com",
-           comment = c(ORCID = "0000-0003-2244-4078"))
-Description: Access data stored on the Reptile Database (\url{http://reptile-database.org})
+           comment = c(ORCID = "0000-0003-2244-4078")))
+Description: Search and download data hosted on the Reptile Database (\url{http://reptile-database.org}).
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -23,4 +23,8 @@ Imports:
     assertthat,
     readxl,
     dplyr,
-    tidyselect
+    tidyselect,
+    utils
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

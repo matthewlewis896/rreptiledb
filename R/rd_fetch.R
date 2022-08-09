@@ -1,10 +1,8 @@
 #' Fetch Data for a Species
 #' @description Pull data from the Reptiles Database for a specified species
-#' @author Matt Lewis
-#'
 #' @param binomial \code{character}. The species's binomial name.
-#'
 #' @return A list of attributes and information about the species.
+#' @author Matt Lewis
 #' @export
 
 rd_fetch <-
@@ -31,10 +29,11 @@ rd_fetch <-
     sp_data <-
       search_url %>%
       xml2::read_html() %>%
-      rvest::html_node(
-        ".species"
-        ) %>%
-      html_table()
+      rvest::html_element(".species") %>%
+      {ifelse(length(.) > 0L,list(html_table(.)),0)} %>%
+      unlist(recursive = F)
+
+    assertthat::assert_that(is.list(sp_data), msg = 'Species not found.')
 
     return(sp_data)
   }
