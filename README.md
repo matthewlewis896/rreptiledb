@@ -11,6 +11,8 @@ status](https://travis-ci.com/matthewlewis896/rreptiledb.svg?branch=master)](htt
 status](https://ci.appveyor.com/api/projects/status/github/matthewlewis896/rreptiledb?branch=master&svg=true)](https://ci.appveyor.com/project/matthewlewis896/rreptiledb)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rreptiledb)](https://CRAN.R-project.org/package=rreptiledb)
+[![Codecov test
+coverage](https://codecov.io/gh/matthewlewis896/rreptiledb/branch/master/graph/badge.svg)](https://app.codecov.io/gh/matthewlewis896/rreptiledb?branch=master)
 <!-- badges: end -->
 
 rreptiledb allows you to search and download data hosted on the [Reptile
